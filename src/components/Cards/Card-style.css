@@ -1,0 +1,145 @@
+:root {
+  --clr-neutral-900: hsl(207, 19%, 9%);
+  --clr-neutral-100: hsl(0, 0%, 100%);
+  --clr-accent-400: hsl(142, 90%, 61%);
+}
+
+/* sets colors for the whole style sheet to use */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.card {
+  background-image: url("img/card-bg.jpg");
+  color: var(--clr-neutral-100);
+  padding: 8.5rem 0 0;
+  max-width: 35ch;
+
+  border-radius: 0.5rem;
+  overflow: hidden;
+
+  transition: transform 500ms ease;
+}
+/* this sets up the basic shape of the card  */
+
+.card-content {
+  --padding: 1.5rem;
+  padding: var(--padding);
+  background: linear-gradient(
+    hsl(0 0% 0% / 0),
+    hsl(20 0% 0% / 0.2) 10%,
+    hsl(0 0% 0% / 1)
+  );
+}
+
+/* this sets up a padding variable that can be used down the stack but not up it. this 
+allows for use to have to only change one variable to adjust many things tied to it 
+down the stack */
+
+.card-title {
+  position: relative;
+  width: max-content;
+}
+
+.card-title::after {
+  content: "";
+  position: absolute;
+  height: 4px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: var(--clr-accent-400);
+
+  transform-origin: left;
+  transition: transform 680ms ease;
+}
+
+.card:hover .card-title::after,
+.card:focus-within .card-title::after {
+  transform: scalex(1);
+}
+
+.card-body {
+  color: rgb(255 255 255 /0.85);
+}
+.button {
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  color: var(--clr-neutral-900);
+  background-color: var(--clr-accent-400);
+  padding: 0.5em 1.25em;
+  border-radius: 0.25em;
+}
+
+.button:hover,
+.button:focus {
+  background-color: var(--clr-neutral-100);
+}
+
+/* this adjusts the text opacity in the body of the card     */
+
+/* The following media inquiry activates all of the :hover animations if the targeted system
+allows for it. */
+@media (hover) {
+  .card:hover,
+  .card:focus-within {
+    transform: scale(1.025);
+  }
+  /* this scales the whole card by a small amount on hover and since this is 
+the parent everything within scales as well. the "transition" line in the .card 
+sets the timescale and the method in this case 500ms and it eases in creating 
+smooth animation */
+  .card-content {
+    transform: translateY(65%);
+    transition: transform 500ms ease;
+  }
+  .card:hover .card-content,
+  .card:focus-within .card-content {
+    transform: translateY(0);
+    transition-delay: 500ms;
+  }
+
+  .card:focus-within .card-content {
+    transition-duration: 0ms;
+  }
+
+  .card-content > *:not(.card-title) {
+    opacity: 0;
+    transition: opacity 500ms linear;
+  }
+
+  /* changes the opacity of all card content except the title */
+
+  .card:hover .card-content > *:not(.card-title),
+  .card:focus-within .card-content > *:not(.card-title) {
+    opacity: 1;
+    transition-delay: 875ms;
+  }
+  /* allows for keyboard navigation to activate/exit proper animations*/
+  .card-title::after {
+    transform: scalex(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+    transition-delay: 0ms !important;
+  }
+}
+/* this is for those who do not have animations running on their comp */
+@media (max-width: 500px) {
+  .card {
+    min-width: 30ch;
+    align-items: center;
+  }
+}
