@@ -3,7 +3,7 @@ import Card from "../components/Cards/Card";
 
 function Projects() {
   return (
-    <div className="Projects">
+    <div className="Intro">
       <h1>Projects</h1>
       <div className="card-page">
         <Card />

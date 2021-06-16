@@ -8,12 +8,25 @@ import { IconContext } from "react-icons";
 
 function Nav() {
   const [sidebar, setSidebar] = useState(false);
+  const [navbar, setNavbar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
+
+  const changeBackground = () => {
+    if (window.scrollY >= 80) {
+      setNavbar(true);
+    } else {
+      setNavbar(false);
+    }
+  };
+
+  window.addEventListener("scroll", changeBackground);
   return (
-    <>
-      <IconContext.Provider value={{ color: "black" }}>
-        <div className="navbar">
+    <header>
+      <>
+        {/* <IconContext.Provider> */}
+
+        <div className={navbar ? "navbar navbar-scroll" : "navbar"}>
           <Link to="#" className="menu-bars">
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
@@ -37,8 +50,9 @@ function Nav() {
             })}
           </ul>
         </nav>
-      </IconContext.Provider>
-    </>
+        {/* </IconContext.Provider> */}
+      </>
+    </header>
   );
 }
 
