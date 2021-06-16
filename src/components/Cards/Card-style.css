@@ -75,7 +75,6 @@ down the stack */
   border-radius: 0.25em;
 }
 
-.button:hover,
 .button:focus {
   background-color: var(--clr-neutral-100);
 }
@@ -122,6 +121,10 @@ smooth animation */
   /* allows for keyboard navigation to activate/exit proper animations*/
   .card-title::after {
     transform: scalex(0);
+  }
+
+  .button:hover {
+    background-color: var(--clr-neutral-100);
   }
 }
 
