@@ -23,6 +23,7 @@ header {
   background: none;
   color: var(--text);
   text-decoration: none;
+  z-index: 1;
 }
 
 .navbar-scroll {
@@ -51,7 +52,8 @@ header {
 
 .nav-menu.active {
   left: 0;
-  transition: 400ms;
+  transition: 400ms ease;
+  z-index: 999;
 }
 
 .nav-text {
@@ -73,6 +75,7 @@ header {
   align-items: center;
   padding: 0 16px;
   border-radius: 4px;
+  z-index: 9999;
 }
 
 .nav-text a:hover {
