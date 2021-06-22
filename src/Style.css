@@ -9,6 +9,20 @@
   /* margin: 0; */
   padding: 0;
 }
+
+button {
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  background-color: antiquewhite;
+  padding: 0.5em 1.25em;
+  border-radius: 0.25em;
+}
+button:hover {
+  background-color: var(--clr-accent-400);
+}
+
 .profile{
   display: flex;
   height: 50vh;
