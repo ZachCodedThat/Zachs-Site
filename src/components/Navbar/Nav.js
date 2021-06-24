@@ -4,7 +4,6 @@ import * as AiIcons from "react-icons/ai";
 import { Link } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import "./Nav.css";
-// import { IconContext } from "react-icons";
 
 function Nav() {
   const [sidebar, setSidebar] = useState(false);
@@ -24,8 +23,6 @@ function Nav() {
   return (
     <header>
       <>
-        {/* <IconContext.Provider> */}
-
         <div className={navbar ? "navbar navbar-scroll" : "navbar"}>
           <Link to="#" className="menu-bars">
             <FaIcons.FaBars onClick={showSidebar} />
@@ -41,7 +38,6 @@ function Nav() {
             <Sidebar />
           </ul>
         </nav>
-        {/* </IconContext.Provider> */}
       </>
     </header>
   );
