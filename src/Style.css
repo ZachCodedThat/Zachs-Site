@@ -23,25 +23,22 @@ button:hover {
   background-color: var(--clr-accent-400);
 }
 
-.profile{
+.profile {
   display: flex;
   height: 50vh;
   text-align: center;
   align-items: center;
   justify-content: center;
   font-size: 2rem;
-  color:antiquewhite
+  color: antiquewhite;
 }
 
-
-
-.login{
+.login {
   display: flex;
   height: 50vh;
   align-items: center;
   justify-content: center;
   font-size: 4rem;
-  
 }
 
 .Intro > *:not(.card-page) {
@@ -65,7 +62,8 @@ body {
 
 h1 {
   text-align: center;
-  padding: 0.25%;
+  justify-content: center;
+  color: var(--clr-neutral-100);
 }
 
 .card-page {
