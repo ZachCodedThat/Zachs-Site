@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import * as AiIcons from "react-icons/ai";
 import * as ImIcons from "react-icons/im";
 
@@ -22,3 +23,22 @@ export const SidebarData = [
     className: "nav-text",
   },
 ];
+
+function Sidebar() {
+  return (
+    <div>
+      {SidebarData.map((item, index) => {
+        return (
+          <li key={index} className={item.className}>
+            <Link to={item.path}>
+              {item.icon}
+              <span>{item.title}</span>
+            </Link>
+          </li>
+        );
+      })}
+    </div>
+  );
+}
+
+export default Sidebar;
